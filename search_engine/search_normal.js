@@ -1,5 +1,12 @@
+/**
+ * Search Engine untuk kebutuhan mencari data pada database atau data kita
+ * Language : Javascript
+ */
+
+// tester data
 const test_data = require("./data-test.json");
 
+// untuk mendapatkan array dari sebuah keyword
 function get_keywords(query) {
     return String(query)
         .toLowerCase()
@@ -17,6 +24,13 @@ function get_keywords(query) {
         .sort() // ASC a~z | 0~9
 }
 
+/**
+ * // Search Engine
+ * @param {Array} array list data yang ingin di cari
+ * @param {String} keywords kata kunci dalam pencarian
+ * @param {Integer} percentage persentasi bertemu dengan data yang sesuai
+ * @returns 
+ */
 function search(array, keywords, percentage) {
     const keyword = get_keywords(keywords);
     return array.filter(data => {
@@ -41,4 +55,5 @@ function search(array, keywords, percentage) {
     })
 }
 
+// result
 console.log(search(test_data, "is women", 40));
